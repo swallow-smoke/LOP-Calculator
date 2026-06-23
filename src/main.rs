@@ -21,7 +21,7 @@ fn main() {
         Err(error) => panic!("{}", error),
     };
 
-    println!("계산 결과: {}", Calculator);
+    println!("계산 결과: {:.5}", Calculator);
 }
 
 fn VaildateInput(input: &Vec<String>) -> Result<(), String> {
