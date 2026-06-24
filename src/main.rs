@@ -61,6 +61,8 @@ fn ReadLine() -> String{
     result
 }
 
+
+// String으로 받아서 토큰으로 분리하는것, 후위 표기식 X
 fn Seperate(str: String) -> Vec<String> {
     let mut result = Vec::new();
     let mut temp = String::new();
@@ -105,6 +107,9 @@ fn Seperate(str: String) -> Vec<String> {
     result
 }
 
+
+// 식 계산기, 이거 자체로만은 괄호 연산이 불가.
+// 괄호 연산하려면 ProcessBrackets로 사용
 fn CalculateFormula(str: Vec<String>) -> Result<f32, String> {
     let mut result: f32 = 0.0;
 
@@ -164,6 +169,11 @@ fn CalculateFormula(str: Vec<String>) -> Result<f32, String> {
     return Ok(result);
 }
 
+
+// 괄호 처리기
+// ")" 문자를 찾으면 그 문자를 기준으로 -1 하고
+// "(" 문자가 나올때까지 찾아 +1 한 내부의 배열들을 Vec<String>으로 변환해
+// CalculateFormula에 넘기기
 fn ProcessBrackets(brackets: Vec<String>) -> Vec<String> {
     let mut _result: Vec<String> = Vec::new();
 
